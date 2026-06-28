@@ -415,6 +415,62 @@
   }
   .writing-card:hover .writing-btn { background: #14382d; gap: 9px; }
 
+  /* CASE STUDIES */
+  .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .case-study-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 14px; padding: 0;
+    text-decoration: none; color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    display: flex; flex-direction: column;
+    overflow: hidden; position: relative;
+  }
+  .case-study-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--accent2), var(--accent));
+  }
+  .case-study-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(26,77,62,0.12);
+    border-color: var(--accent);
+  }
+  .case-study-body { padding: 24px 24px 18px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+  .case-study-tag-row { display: flex; align-items: center; justify-content: space-between; }
+  .case-study-platform {
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--accent);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .case-study-platform::before { content: '🧩'; font-size: 12px; }
+  .case-study-readtime {
+    font-size: 11px; color: var(--light); font-weight: 500;
+    background: var(--bg); padding: 3px 10px; border-radius: 100px;
+  }
+  .case-study-title {
+    font-family: 'DM Serif Display', serif; font-size: 19px;
+    line-height: 1.35; color: var(--ink);
+  }
+  .case-study-desc { font-size: 13.5px; color: var(--mid); line-height: 1.6; }
+  .case-study-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+  .case-study-footer {
+    border-top: 1px solid var(--border);
+    padding: 14px 24px;
+    background: #fafaf8;
+    transition: background 0.2s;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .case-study-card:hover .case-study-footer { background: var(--tag-bg); }
+  .case-study-date { font-size: 11px; color: var(--light); font-weight: 500; }
+  .case-study-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent); color: white;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.4px;
+    text-transform: uppercase; padding: 7px 14px;
+    border-radius: 6px; transition: background 0.15s, gap 0.15s;
+    white-space: nowrap;
+  }
+  .case-study-card:hover .case-study-btn { background: #14382d; gap: 9px; }
+
   /* RESUME */
   .resume-band {
     background: var(--white);
@@ -549,6 +605,7 @@
     .ach-grid,
     .skills-layout,
     .edu-grid,
+    .case-study-grid,
     .writing-cards { grid-template-columns: 1fr; }
 
     /* Contact */
@@ -624,6 +681,7 @@
     <a href="#domains">Domains</a>
     <a href="#experience">Experience</a>
     <a href="#products">Products</a>
+    <a href="#case-studies">Case Studies</a>
     <a href="#achievements">Achievements</a>
     <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
@@ -1276,6 +1334,67 @@
     .course-item-title { white-space:normal; }
   }
 </style>
+
+<!-- CASE STUDIES -->
+<section class="section" id="case-studies">
+  <div class="section-header">
+    <h2 class="section-title">Case Studies</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="case-study-grid">
+        <a class="case-study-card" href="https://zunayed1207.medium.com/why-270-out-of-1-000-new-users-never-even-opened-the-editor-9a7b5481b8af?postPublishedType=repub" target="_blank" rel="noopener noreferrer">
+      <div class="case-study-body">
+        <div class="case-study-tag-row">
+          <span class="case-study-platform">Case Study</span>
+          <span class="case-study-readtime">📖 6 min read</span>
+        </div>
+        <div class="case-study-title">Why 270 Out of 1,000 New Users Never Even Opened the Editor</div>
+        <div class="case-study-desc">A product case study on diagnosing and designing around Beauty Editor’s biggest activation leak</div>
+        <div class="case-study-tags">
+          <span class="tag">Product Analytics</span><span class="tag">User Onboarding</span><span class="tag">Mind Map</span><span class="tag">Feature Spec</span>
+        </div>
+      </div>
+      <div class="case-study-footer">
+        <span class="case-study-date">Beauty Editor · User Onboarding</span>
+        <span class="case-study-btn">Read Case Study ↗</span>
+      </div>
+    </a>
+    <a class="case-study-card" href="https://medium.com/@zunayed1207/case-study-on-tour-plan-sharing-platform-434932d0b001" target="_blank" rel="noopener noreferrer">
+      <div class="case-study-body">
+        <div class="case-study-tag-row">
+          <span class="case-study-platform">Case Study</span>
+          <span class="case-study-readtime">📖 6 min read</span>
+        </div>
+        <div class="case-study-title">Tour Plan-Sharing Platform</div>
+        <div class="case-study-desc">A feature deep-dive for "Let's Go," a tour plan-sharing app — covering a Comprehensive Tour Plan feature spec, a user flow diagram, user stories with acceptance criteria, and the metrics used to validate success.</div>
+        <div class="case-study-tags">
+          <span class="tag">Feature Spec</span><span class="tag">User Flow</span><span class="tag">User Stories</span><span class="tag">Success Metrics</span>
+        </div>
+      </div>
+      <div class="case-study-footer">
+        <span class="case-study-date">Travel · Freemium Platform</span>
+        <span class="case-study-btn">Read Case Study ↗</span>
+      </div>
+    </a>
+    <a class="case-study-card" href="https://medium.com/@zunayed1207/design-a-technological-solution-for-online-sellers-which-will-make-their-life-easier-in-online-3dfa462a6dd3" target="_blank" rel="noopener noreferrer">
+      <div class="case-study-body">
+        <div class="case-study-tag-row">
+          <span class="case-study-platform">Case Study</span>
+          <span class="case-study-readtime">📖 5 min read</span>
+        </div>
+        <div class="case-study-title">A Multi-Channel Solution for Online Sellers</div>
+        <div class="case-study-desc">A product design exercise for D2C sellers managing inventory and orders across channels like Daraz and Amazon — covering target market, a 10-feature solution, go-to-market strategy, revenue model, and client onboarding.</div>
+        <div class="case-study-tags">
+          <span class="tag">Target Market</span><span class="tag">Feature Set</span><span class="tag">GTM Strategy</span><span class="tag">Revenue Model</span>
+        </div>
+      </div>
+      <div class="case-study-footer">
+        <span class="case-study-date">E-commerce · D2C</span>
+        <span class="case-study-btn">Read Case Study ↗</span>
+      </div>
+    </a>
+  </div>
+</section>
 
 <!-- WRITING -->
 <section class="section" id="writing">
