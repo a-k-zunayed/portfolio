@@ -286,7 +286,7 @@
   .cta-panel h2{ font-size:20px; }
   .cta-panel.accent .btn-outline{ background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.4); color:#fff; }
   .contact-list{ display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:10px 16px; }
-  .contact-list a, .contact-list span{ display:flex; align-items:center; gap:8px; text-decoration:none; font-size:13.5px; color:#fff; }
+  .contact-list a, .contact-list span{ display:flex; align-items:center; gap:8px; text-decoration:none; font-size:13.5px; color:#fff; overflow-wrap:anywhere;}
 
   /* ── VISIT COUNTER ── */
   .counter-section{ position:relative; background:linear-gradient(135deg,var(--accent-dark) 0%, var(--accent) 55%, var(--accent-dark) 100%); overflow:hidden; padding:56px 24px; text-align:center; border-radius:var(--radius); margin-top:8px; }
@@ -316,7 +316,7 @@
     .wrap{ padding:0 24px; }
     .hero-grid{ grid-template-columns:1fr; }
     .hero-photo{ max-width:200px; }
-    .domain-grid, .skills-grid, .spec-grid, .ach-grid, .cta-split{ grid-template-columns:1fr; }
+    .domain-grid, .skills-grid, .spec-grid, .ach-grid, .cta-split, .contact-list{ grid-template-columns:1fr; }
     .stats-bar{ grid-template-columns:1fr 1fr; }
     .products-grid{ column-count:1; }
   }
