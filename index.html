@@ -54,7 +54,12 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;} }
-
+@keyframes fadeUp{ from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);} }
+.hero .eyebrow{ animation:fadeUp .7s var(--ease) both; }
+.hero h1{ animation:fadeUp .7s var(--ease) .1s both; }
+.hero-bio{ animation:fadeUp .7s var(--ease) .2s both; }
+.domain-badges{ animation:fadeUp .7s var(--ease) .3s both; }
+.hero-ctas{ animation:fadeUp .7s var(--ease) .4s both; }
   body{
     font-family:'Inter',sans-serif; color:var(--ink); background:var(--bg);
     line-height:1.6; min-height:100vh; font-size:15.5px;
@@ -142,7 +147,8 @@
   .hero{ padding:76px 0 40px; }
   .hero-grid{ display:grid; grid-template-columns:1fr 250px; gap:48px; align-items:center; }
   .hero h1{ font-size:clamp(32px,4.2vw,48px); line-height:1.1; margin:18px 0 18px; }
-  .hero h1 em{ font-style:italic; background:var(--grad-accent); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero h1 em{ font-style:italic; background:var(--grad-accent); -webkit-background-clip:text; background-clip:text; color:transparent; background-size:200% auto; animation:gradientShift 4s ease-in-out infinite; }
+@keyframes gradientShift{ 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
   .hero-bio{ color:var(--mid); font-size:16px; line-height:1.8; max-width:540px; margin-bottom:26px; }
   .hero-bio strong{ color:var(--ink); }
   .domain-badges{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:15px; }
@@ -828,6 +834,30 @@
     }
     requestAnimationFrame(tick);
   }
+  // Count-up for hero stats
+document.querySelectorAll('.stat-num').forEach(function(el){
+  var text = el.textContent.trim();
+  var target = parseInt(text, 10);
+  var suffix = text.replace(/[0-9]/g, '');
+  if (isNaN(target)) return;
+  var done = false;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting && !done) {
+        done = true;
+        var start = performance.now(), duration = 1200;
+        function tick(now){
+          var p = Math.min((now - start) / duration, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  obs.observe(el);
+});
   updateViewCount();
 
   // Product filter
