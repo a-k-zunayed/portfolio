@@ -99,7 +99,14 @@
     transition:transform .2s var(--ease), box-shadow .2s var(--ease), background .2s;
     cursor:pointer;
   }
-  .btn-primary{ background:var(--grad-accent); color:#fff; box-shadow:0 6px 18px rgba(30,111,168,.28); }
+  .btn-primary{ background:var(--grad-accent); color:#fff; box-shadow:0 6px 18px rgba(30,111,168,.28); position:relative; overflow:hidden;}
+  .btn-primary::after{
+  content:''; position:absolute; top:0; left:-75%; width:50%; height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,.45), transparent);
+  transform:skewX(-20deg);
+}
+  .btn-primary:hover::after{ animation:shine .8s ease; }
+  @keyframes shine{ from{left:-75%;} to{left:125%;} }
   .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(30,111,168,.36); }
   .btn-outline{ background:var(--white); border-color:var(--border); color:var(--ink); }
   .btn-outline:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
@@ -187,8 +194,7 @@
   .domain-title{ font-size:17px; margin-bottom:8px; }
   .domain-desc{ font-size:13.5px; color:var(--mid); line-height:1.6; margin-bottom:10px; }
   .domain-ex{ font-size:12px; color:var(--light); font-style:italic; }
-  .domain-icon, .ach-icon{ transition:transform .3s var(--ease); }
-  .domain-card:hover .domain-icon{ transform:scale(1.15) rotate(-8deg); }
+
   /* ── EXPERIENCE (roadmap timeline) ── */
   .roadmap{ position:relative; padding-left:26px; }
   .roadmap::before{ content:''; position:absolute; left:5px; top:8px; bottom:8px; width:2px; background:var(--border); }
@@ -238,7 +244,6 @@
   .ach-icon{ font-size:20px; margin-bottom:10px; }
   .ach-title{ font-family:'Fraunces',serif; font-size:18px; color:var(--accent); margin-bottom:4px; }
   .ach-desc{ font-size:12px; color:var(--mid); line-height:1.5; }
-  .ach-card:hover .ach-icon{ transform:scale(1.15) rotate(8deg); }
   
   /* ── SKILLS ── */
   .skills-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
