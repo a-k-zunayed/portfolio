@@ -187,7 +187,8 @@
   .domain-title{ font-size:17px; margin-bottom:8px; }
   .domain-desc{ font-size:13.5px; color:var(--mid); line-height:1.6; margin-bottom:10px; }
   .domain-ex{ font-size:12px; color:var(--light); font-style:italic; }
-
+  .domain-icon, .ach-icon{ transition:transform .3s var(--ease); }
+  .domain-card:hover .domain-icon{ transform:scale(1.15) rotate(-8deg); }
   /* ── EXPERIENCE (roadmap timeline) ── */
   .roadmap{ position:relative; padding-left:26px; }
   .roadmap::before{ content:''; position:absolute; left:5px; top:8px; bottom:8px; width:2px; background:var(--border); }
@@ -237,7 +238,8 @@
   .ach-icon{ font-size:20px; margin-bottom:10px; }
   .ach-title{ font-family:'Fraunces',serif; font-size:18px; color:var(--accent); margin-bottom:4px; }
   .ach-desc{ font-size:12px; color:var(--mid); line-height:1.5; }
-
+  .ach-card:hover .ach-icon{ transform:scale(1.15) rotate(8deg); }
+  
   /* ── SKILLS ── */
   .skills-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
   .skill-group h3{ font-size:12.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--light); margin-bottom:12px; }
